@@ -38,4 +38,21 @@ public class NodeTest extends TestCase {
 
 	}
 
+	@Test
+	public void testPrintFrontToBack() {
+
+		ByteArrayOutputStream systemOut = new ByteArrayOutputStream();
+		System.setOut(new PrintStream(systemOut));
+
+		Node root = new Node(5);
+		root.insertSorted(7);
+		root.insertSorted(4);
+		root.insertSorted(10);
+
+		root.printFrontToBack(root, 6);
+
+		assertEquals("7\n10\n5\n4\n", systemOut.toString());
+
+	}
+
 }

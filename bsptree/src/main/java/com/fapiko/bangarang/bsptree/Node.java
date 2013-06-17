@@ -45,4 +45,25 @@ public class Node {
 		}
 	}
 
+	public void printFrontToBack(Node node, int camera) {
+		if (node == null) return;
+		if (camera < node.value) {
+			// print in order
+			printFrontToBack(node.left, camera);
+			System.out.println(node.value);
+			printFrontToBack(node.right, camera);
+		}
+		else if (camera > node.value) {
+			// print in reverse order
+			printFrontToBack(node.right, camera);
+			System.out.println(node.value);
+			printFrontToBack(node.left, camera);
+		}
+		else {
+			// order doesn't matter
+			printFrontToBack(node.left, camera);
+			printFrontToBack(node.right, camera);
+		}
+	}
+
 }
